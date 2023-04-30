@@ -1,0 +1,16 @@
+query products($limit: Int) {
+  categories(limit: $limit) {
+    translations {
+      content
+      title
+      description
+      cover {
+        id
+      }
+      languages_code {
+        code
+        direction
+      }
+    }
+  }
+}

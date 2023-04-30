@@ -1,0 +1,14 @@
+query home($limit1: Int) {
+  Home_files_1(limit: $limit1) {
+    Home_id(limit: $limit1) {
+      translations {
+        slider
+        languages_code {
+          name
+          direction
+          code
+        }
+      }
+    }
+  }
+}

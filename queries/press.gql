@@ -1,0 +1,16 @@
+query press($limit: Int) {
+  press_center(limit: $limit) {
+    slug
+    translations {
+      content
+      description
+      title
+      cover {
+        id
+      }
+      languages_code {
+        code
+      }
+    }
+  }
+}
