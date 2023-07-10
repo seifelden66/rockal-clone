@@ -15,5 +15,10 @@ export default {
   Sustainability:'Sustainability',
   projects:'projects',
   'R & D': "R & D",
-  translate:'AR'
+  translate:'AR',
+  'dproducts' : "featuered products",
+  press2: 'press center',
+  show:'show more',
+  'our products approved by':'our products approved by',
+  'our projects':'our projects'
 };

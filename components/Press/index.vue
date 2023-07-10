@@ -1,13 +1,23 @@
 <template lang="pug">
-.div 
+.div(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'") 
     .container-fluid 
         .navBar 
             .left 
-                h2 featuered products 
+                h2 {{$t('press2')}}
             .right 
                 .smoothBox 
-                    h6 show all 
-        PressCard(:data="data" :lang="lang") 
+                    h6 {{$t('show')}}
+        .fr 
+          .card(v-for="(i, index) in data.press_center" :class="'card-' + index")
+            div(v-if="i.translations[0].cover")
+              div(v-for="item in i.translations" :key="index")
+                .in(v-if="item.languages_code.code.includes(lang)")
+                  .image
+                    img(:src="'https://board.rockal.org/assets/'+ item.cover.id")
+                  .right
+                    h5 {{ item.title }}
+                    .con
+                      p {{ item.description }}
                           
                 
 </template>
@@ -24,19 +34,25 @@ const { data } = await useAsyncGql({
   operation: "press",
   variables: { limit: 4 },
 });
+
+
 </script>
 
 <style lang="scss" scoped>
 .div {
+  padding-top: 2.5em;
+  padding-bottom: 1em;
   h2{
     color: white;
   }
   .container-fluid {
     .navBar {
-      margin-bottom: 1em;
+      margin-bottom: 1.5em;
       display: flex;
       justify-content: space-between;
+      
       .right {
+        
         display: flex;
         gap: 10px;
         .smoothBox {
@@ -50,28 +66,122 @@ const { data } = await useAsyncGql({
         }
       }
     }
-    .fr {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      position: relative;
-      gap: .5em;
+   
+  }
+  .fr{
+    
+    display: grid;
+    grid-template-areas: 
+    "a a b"
+    "d c b";
+    gap: 1em;
+    .card{
+      .in{
+        gap: 1em;
+        .image{
+          height: 30vh;
+        }
+        .right{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: .7em;
+          .con{
+            text-align: center;
+          }
+        }
+      }
       
-      .card {
-        // common styles for all cards
-        background-color: #f2f2f2;
-        border: 1px solid #ddd;
-        padding: 10px;
-        
-        
+      &-0 {
+        .in{
+          display: grid;
+          grid-template-columns: 1fr;
+          .right{
+            display: none;
+          }
+          
+        }
+        grid-area: a;
 
       }
-      .card-0 {
-        background: #721c1c;
+      &-1 {
+        .in{
+          
+          .image{
+          
+            height: 50vh;
+          }
+        }
+        grid-area: b;
       }
-      .card-1 {
-        background: #0c8494;
+      &-2 {
+        grid-area: c;
       }
-       
+      &-3 {
+        grid-area: d;
+        background: #267a33;
+        padding-top: 2em;
+        color: white;
+        .image{
+          display: none;
+        }
+      }
+    }
+
+  }
+}
+@media (max-width:992px) {
+  .div{
+    .container-fluid {
+      .navBar{
+        text-align: center;
+        .right{
+          display: none;
+        }
+      }
+      .fr{
+        font-size: xx-small;
+        display: grid;
+        grid-template-areas: 
+        "a a a a"
+        "b b d d"
+        "c c c c" ;
+        .card{
+
+          &-0 {
+            grid-area: a;
+            .in{
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              place-items: center;
+            }
+          }
+          &-1 {
+            grid-area: b;
+            .image{
+              height: 150px;
+            }
+          }
+          &-2 {
+            grid-area: c;
+            .in{
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              place-items: center;
+            }
+          }
+          &-3 {
+            grid-area: d;
+
+            .in{
+              margin: 1em auto;
+              display: flex;
+              align-items: center;
+              padding: 1em;
+            }
+          }
+        }
+      }
     }
   }
 }

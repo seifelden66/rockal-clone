@@ -1,9 +1,9 @@
 <template lang="pug">
-.div
+.div(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'")
     .container-fluid
         .navBar 
             .left 
-                h2 featuered products 
+                h2 {{$t('dproducts')}} 
             .right 
                 .smoothBox 
                     h6 browse all categouries 
@@ -19,14 +19,18 @@
           
         )
           SwiperSlide(v-for="i in data.categories") 
-            div(v-if="i.translations[0].cover")
-                div(v-for="item in i.translations")
-                  .card(v-if="item.languages_code.code.includes(lang)")
-                    .image
-                      img(:src="'https://board.rockal.org/assets/'+ item.cover.id")
-                    .bottom
-                      h5 {{ item.title }}
-                      p {{ item.description.substr(0, 150) + "..." }}
+            div(v-for="item in i.translations")
+              div(v-if="item.cover === null")
+                .card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'" style="padding:2em")
+                  h1(style="margin-bottom:1.5em") {{ item.title }}
+                  h4 {{ item.description }}
+              div(v-else)
+                .card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'")
+                  .image
+                    img(:src="'https://board.rockal.org/assets/'+ item.cover.id")
+                  .bottom
+                    h5 {{ item.title }}
+                    p {{ item.description.substr(0, 150) + "..." }}
 
 </template>
 
@@ -49,10 +53,11 @@ const { data } = await useAsyncGql({
   margin: 0 !important;
   background: #f8f8f8;
   padding-top: 3em;
+  
   .container-fluid {
 
     .navBar {
-      margin-bottom: 1em;
+      margin-bottom: 2em;
       display: flex;
       justify-content: space-between;
       .right {
@@ -72,7 +77,7 @@ const { data } = await useAsyncGql({
     .cards {
       
       .card {
-        height: 320px;
+        height: 330px;
         
         .image {
           height: 150px;

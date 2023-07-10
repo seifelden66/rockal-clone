@@ -15,5 +15,10 @@ export default {
   Sustainability: "الاستدامه",
   projects:'المشاريع',
   'R & D': "التطوير",
-  translate: "EN"
+  translate: "EN",
+  'dproducts' : "منتجات مميزة",
+  press2:'مركز الصحافة',
+  show:"عرض المزيد",
+  'our products approved by':"تمت الموافقة على منتجاتنا من قبل",
+  'our projects':"مشروعاتنا"
   };

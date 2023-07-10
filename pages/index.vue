@@ -3,6 +3,9 @@
     Hero/
     Products/
     Press/
+    Approvals/
+    Applications/
+    Projects/
 </template>
 <style lang="scss" scoped>
     .main{

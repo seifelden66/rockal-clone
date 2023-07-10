@@ -1,0 +1,9 @@
+query spons {
+  brands {
+    translations {
+      cover {
+        id
+      }
+    }
+  }
+}

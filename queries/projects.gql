@@ -1,0 +1,17 @@
+query projects($limit: Int) {
+  projects(limit: $limit) {
+    slug
+    translations{
+      languages_code{
+        code
+      }
+      title
+      description
+      content
+      cover{
+        id
+      }
+    }
+  }
+}
+

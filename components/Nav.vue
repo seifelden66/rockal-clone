@@ -1,5 +1,5 @@
 <template lang="pug">
-.div
+.div(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'")
     .container-fluid
       .all
         .upper
@@ -44,6 +44,7 @@
 <script setup lang="ts">
 import { useI18nUtils } from "../i18n";
 const { t, locale, setLocale, localePath, changeLanguageEN } = useI18nUtils();
+
 </script>
 
 <style lang="scss" scoped>

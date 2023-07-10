@@ -1,5 +1,5 @@
 <template lang="pug">
-.div
+.div(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'")
   .container-fluid
     div(v-for="i in data.Home_files_1")
       div(v-for="item in i.Home_id.translations") 
@@ -74,9 +74,7 @@ const { data } = await useAsyncGql({
               }
             }
           }
-          h1 {
-            font-size: 32px !important;
-          }
+          
           h5 {
             font-weight: 400 !important;
           }
@@ -94,35 +92,22 @@ const { data } = await useAsyncGql({
   .div {
     height: 650px;
     .card {
+      font-size: smaller;
       height: 620px !important;
       display: grid;
       grid-template-columns: 1fr !important;
       .left {
-        height: 250px;
-        h1 {
-          font-size: 32px !important;
-        }
+        height: 300px;
+       
         h5 {
-          font-size: 17px !important;
+          
           font-weight: 400 !important;
         }
       }
 
-      .image {
-        height: 370px !important;
-      }
+      
     }
   }
 }
-@media (max-width: 600px) {
-  .card {
-    height: 620px !important;
-    .left {
-      height: 310px;
-    }
-    .image {
-      height: 310px !important;
-    }
-  }
-}
+
 </style>

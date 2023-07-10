@@ -14,3 +14,23 @@ query products($limit: Int) {
     }
   }
 }
+
+
+query productsapps {
+  applications {
+    slug
+
+    translations {
+      title
+      description
+      content
+      cover {
+        id
+      }
+      languages_code {
+        code
+      }
+    }
+  }
+}
+
