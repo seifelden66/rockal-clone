@@ -3,7 +3,7 @@
     <Nav class="fixed-nav"/>
     <SideBar />
     <slot class="main-content" />
-
+    <Footer />
 </div>
     
 

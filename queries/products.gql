@@ -1,5 +1,6 @@
 query products($limit: Int) {
   categories(limit: $limit) {
+    slug
     translations {
       content
       title
@@ -16,8 +17,8 @@ query products($limit: Int) {
 }
 
 
-query productsapps {
-  applications {
+query productsapps($limit: Int) {
+  applications(limit: $limit) {
     slug
 
     translations {

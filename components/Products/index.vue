@@ -44,6 +44,7 @@ const modules = [Navigation, Pagination];
 
 const { data } = await useAsyncGql({
   operation: "products",
+ 
 });
 </script>
 
@@ -52,10 +53,9 @@ const { data } = await useAsyncGql({
   height: 600px;
   margin: 0 !important;
   background: #f8f8f8;
-  padding-top: 3em;
-  
-  .container-fluid {
+  padding-top: 7em;
 
+  .container-fluid {
     .navBar {
       margin-bottom: 2em;
       display: flex;
@@ -75,17 +75,16 @@ const { data } = await useAsyncGql({
       }
     }
     .cards {
-      
       .card {
         height: 330px;
-        
+
         .image {
           height: 150px;
         }
         .bottom {
           margin-top: 5px;
           align-items: center;
-          padding: .5em;
+          padding: 0.5em;
           p {
             font-size: 14px;
           }
@@ -95,28 +94,16 @@ const { data } = await useAsyncGql({
   }
 }
 
-@media (min-width: 992px) {
-  .right {
-    display: flex;
-    gap: 10px;
-    .smoothBox {
-      background: white;
-      color: black;
-      border: 1px black solid;
-      &:hover {
-        color: green;
-        cursor: pointer;
+.div {
+  padding-top: 5em;
+  .container-fluid {
+    .navBar {
+      display: flex;
+      justify-content: center !important;
+      text-align: center !important;
+      .right {
+        display: none !important;
       }
-    }
-  }
-}
-@media (max-width: 992px) {
-  .navBar {
-    display: flex;
-    justify-content: center !important;
-    text-align: center !important;
-    .right {
-      display: none !important;
     }
   }
 }

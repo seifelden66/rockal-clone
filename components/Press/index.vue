@@ -8,7 +8,7 @@
                 .smoothBox 
                     h6 {{$t('show')}}
         .fr 
-          .card(v-for="(i, index) in data.press_center" :class="'card-' + index")
+          .card(v-for="(i, index) in data.press_center" :class="'card-' + index" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'" )
             div(v-if="i.translations[0].cover")
               div(v-for="item in i.translations" :key="index")
                 .in(v-if="item.languages_code.code.includes(lang)")
@@ -40,7 +40,7 @@ const { data } = await useAsyncGql({
 
 <style lang="scss" scoped>
 .div {
-  padding-top: 2.5em;
+  padding-top: 5em;
   padding-bottom: 1em;
   h2{
     color: white;
@@ -86,9 +86,7 @@ const { data } = await useAsyncGql({
           flex-direction: column;
           align-items: center;
           padding: .7em;
-          .con{
-            text-align: center;
-          }
+          
         }
       }
       
@@ -135,6 +133,8 @@ const { data } = await useAsyncGql({
     .container-fluid {
       .navBar{
         text-align: center;
+        display: flex;
+        justify-content: center !important;
         .right{
           display: none;
         }

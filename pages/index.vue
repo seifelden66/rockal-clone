@@ -6,6 +6,7 @@
     Approvals/
     Applications/
     Projects/
+    Contact/
 </template>
 <style lang="scss" scoped>
     .main{

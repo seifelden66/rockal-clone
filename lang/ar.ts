@@ -20,5 +20,14 @@ export default {
   press2:'مركز الصحافة',
   show:"عرض المزيد",
   'our products approved by':"تمت الموافقة على منتجاتنا من قبل",
-  'our projects':"مشروعاتنا"
+  'our projects':"مشروعاتنا",
+  'browse all':"عرض كل",
+  'fullname':"الاسم الكامل",
+  "email":"البريد الالكترونى",
+  "phone":"رقم الهاتف",
+  "message":"الرساله",
+  "submit":"ارسال",
+  "Certifications": "الشهادات",
+  "company":"الشركه",
+  "All Copyrights Reserved © Rockal 2023 Designed With ♥ by Baianat":"جميع الحقوق محفوظة © روكال 2023 صنع بكل الـ ♥ بيانات"
   };

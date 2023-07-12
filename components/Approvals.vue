@@ -20,14 +20,14 @@ const { data } = await useAsyncGql({
 .div {
   background: #f8f8f8;
   .container-fluid {
-    padding-top: 2.5em;
+    padding-top: 7em;
     padding-bottom: 1.2em;
     .top {
       text-align: center;
     }
     .btm {
       display: flex;
-      margin: 1.2em auto;
+      margin: 1.5em auto;
       gap: 1em;
       
     }
