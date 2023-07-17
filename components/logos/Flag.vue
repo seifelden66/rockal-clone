@@ -1,0 +1,13 @@
+<template>
+    <div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="118.118" height="94.066" viewBox="0 0 118.118 94.066"><g transform="translate(-331 -6686.286)"><g transform="translate(366.245 6717.309)"><rect width="11.915" height="45.809" fill="#1b1c20"/></g><g transform="translate(360.941 6686.286)"><path d="M5.238,0H55.263A4.633,4.633,0,0,1,59.9,4.633V41.768a0,0,0,0,1,0,0H5.238A5.238,5.238,0,0,1,0,36.53V5.238A5.238,5.238,0,0,1,5.238,0Z" fill="#238e37"/></g><g transform="translate(403.127 6701.498)"><path d="M348.908,368.579h36.828a2.244,2.244,0,0,0,1.936-3.378l-8.331-14.217a6.5,6.5,0,0,1,0-6.578l8.331-14.217a2.244,2.244,0,0,0-1.936-3.378H341.992v34.852A6.917,6.917,0,0,0,348.908,368.579Z" transform="translate(-341.992 -326.811)" fill="#238e37"/></g><g transform="translate(331 6768.438)"><rect width="82.405" height="11.915" fill="#1b1c20"/></g><g transform="translate(348.549 6760.41)"><rect width="47.307" height="11.915" fill="#1b1c20"/></g></g></svg>
+    </div>
+</template>
+
+<script setup lang="ts">
+
+</script>
+
+<style scoped>
+
+</style>

@@ -10,7 +10,7 @@
 </template>
 <style lang="scss" scoped>
     .main{
-        margin-top: 200px;
+        margin-top: 180px;
     }
     @media (max-width:992px) {
         .main{

@@ -17,6 +17,56 @@ query products($limit: Int) {
 }
 
 
+query productsCategories($limit: Int){
+  products(limit: $limit){
+    slug
+    translations{
+      cover{
+        id
+      }
+      title
+      description
+      languages_code{
+        code
+      }
+    }
+    brand{
+      products{
+        slug
+        translations{
+          title
+          languages_code{
+            code
+          }
+        }
+      }
+      translations{
+        languages_code{
+          code
+        }
+        title
+      }
+    }
+    category{
+      translations{
+        languages_code{code}
+        title
+      }
+      slug
+    }
+    applications{
+      products_id{
+        slug
+        applications{
+          products_id{
+            slug
+          }
+        }
+      }
+    }
+  }
+}
+
 query productsapps($limit: Int) {
   applications(limit: $limit) {
     slug

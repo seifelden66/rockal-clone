@@ -88,6 +88,7 @@ const lang = ref(locale);
                 
                 .image{
                     width: 12em;
+                    transform: translateX(7px);
                 }
             }
 

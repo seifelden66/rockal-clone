@@ -7,8 +7,7 @@ export default defineNuxtConfig({
                 { rel: 'stylesheet', href: "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" }
             ]
         },
-        pageTransition: { name: 'page', mode: 'out-in' },
-        layoutTransition: { name: 'layout', mode: 'out-in' }
+        
     },
     runtimeConfig: {
         public: {

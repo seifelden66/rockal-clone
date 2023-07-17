@@ -12,8 +12,8 @@
           SwiperSlide(v-for="i in item.slider" ref="swiperSlideRef")
             .card
               .left
-                h1 {{ i.title }}
-                h5 {{ i.description }}
+                h1(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{ i.title }}
+                h5(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{ i.description }}
                 .but
                   NuxtLink(:to="localePath('/about')" class="lin") 
                     .smoothBox
@@ -60,6 +60,7 @@ const { data } = await useAsyncGql({
           height: 450px;
         }
         .left {
+          padding: 1em;
           .but {
             width: 120px;
             margin-top: 1em;

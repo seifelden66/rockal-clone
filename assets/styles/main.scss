@@ -1,6 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&family=Hanken+Grotesk:wght@500&family=Plus+Jakarta+Sans:wght@800&family=Roboto:wght@400;500;700;900&display=swap");
 * {
   margin: 0;
   padding: 0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 body {
   color: #000;
@@ -36,14 +41,36 @@ h5 {
 }
 
 h6 {
-  font-size: clamp(.8rem, 1.3vw, .97rem);
+  font-size: clamp(0.85rem, 1.3vw, 0.95rem);
 }
 
 p {
-  font-size: clamp(0.75rem, 1.25vw, .85rem);
+  font-size: clamp(0.85rem, 1.25vw, 0.86rem);
 }
 
+.dropdown {
+  position: absolute;
+  margin-left: -20px;
+  margin-top: 2px;
+  background: #2c332d;
+  width: 15vw;
+  padding: 0.6em;
+  transition: 300ms;
+  .dropitems {
+    margin-top: -6px;
+    color: white;
+    &:hover {
+      color: #fbc30c;
+    }
+  }
+}
+.animate__fadeIn {
+  animation-duration: 0.5s;
+}
 
+.animate__fadeOut {
+  animation-duration: 0.5s;
+}
 .circle {
   color: white;
   display: flex;
@@ -54,7 +81,7 @@ p {
   width: 30px;
   border-radius: 50%;
   background: #00000000;
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 }
@@ -67,7 +94,7 @@ img {
   object-fit: cover;
 }
 
-.smoothBox{
+.smoothBox {
   background: black;
   border-radius: 20px;
   padding: 10px;
@@ -82,12 +109,12 @@ img {
       text-decoration: none;
     }
   }
-  
-  &:hover{
+
+  &:hover {
     background: #525252;
   }
 }
-.smoothBoxWhite{
+.smoothBoxWhite {
   background: white;
   border-radius: 20px;
   border: #000 solid 1px;
@@ -104,7 +131,7 @@ img {
     }
   }
   cursor: pointer;
-  &:hover{
+  &:hover {
     background: #525252;
   }
 }
@@ -117,14 +144,14 @@ img {
 }
 
 .swiper-button-prev,
-    .swiper-button-next {
-      background: #fff;
-      height: 30px !important;
-      width: 30px !important;
-      --swiper-navigation-size: 20px;
-      border-radius: 50%;
-      color: black !important;
-    }
+.swiper-button-next {
+  background: #fff;
+  height: 30px !important;
+  width: 30px !important;
+  --swiper-navigation-size: 20px;
+  border-radius: 50%;
+  color: black !important;
+}
 .page-enter-active,
 .page-leave-active {
   transition: all 0.5s;

@@ -32,7 +32,7 @@
 
         .btmbtm
           .smoothBoxWhite 
-            NuxtLink.lin.col(:to="localePath('/projectss')")
+            NuxtLink.lin.col(:to="localePath('/projects')")
               h6 {{$t('browse all')}} {{$t('projects')}}
 </template>
 
