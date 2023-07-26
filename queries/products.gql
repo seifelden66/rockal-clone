@@ -1,6 +1,7 @@
-query products($limit: Int) {
+query products($limit: Int, $limit2: Int, $limit3: Int) {
   categories(limit: $limit) {
     slug
+
     translations {
       content
       title
@@ -13,52 +14,130 @@ query products($limit: Int) {
         direction
       }
     }
+    a: products{
+      slug
+      category{
+        products {
+          slug
+          translations {
+            languages_code{
+              code
+            }
+            description
+            cover {
+              id
+            }
+            title
+          }
+        }
+      }
+      translations {
+        title
+        content
+        description
+        cover {
+          id
+        }
+        languages_code {
+          code
+        }
+      }
+    }
+    b: products(limit: $limit2) {
+      applications(limit: $limit3) {
+        applications_id {
+          slug
+          categories {
+            categories_id {
+              slug
+              translations {
+                languages_code {
+                  code
+                }
+                title
+                description
+                cover {
+                  id
+                }
+              }
+            }
+          }
+          translations {
+            title
+            description
+            cover {
+              id
+            }
+            languages_code {
+              code
+            }
+          }
+        }
+      }
+    }
+  }
+}
+query apps($limit: Int) {
+  applications(limit: $limit) {
+    slug
+    translations {
+      title
+      description
+      content
+      cover {
+        id
+      }
+      languages_code {
+        code
+      }
+    }
   }
 }
 
-
-query productsCategories($limit: Int){
-  products(limit: $limit){
+query productsCategories($limit: Int) {
+  products(limit: $limit) {
     slug
-    translations{
-      cover{
+    translations {
+      cover {
         id
       }
       title
       description
-      languages_code{
+      languages_code {
         code
       }
     }
-    brand{
-      products{
+    brand {
+      products {
         slug
-        translations{
+        translations {
           title
-          languages_code{
+          languages_code {
             code
           }
         }
       }
-      translations{
-        languages_code{
+      translations {
+        languages_code {
           code
         }
         title
       }
     }
-    category{
-      translations{
-        languages_code{code}
+    category {
+      translations {
+        languages_code {
+          code
+        }
         title
       }
       slug
     }
-    applications{
-      products_id{
+    applications {
+      products_id {
         slug
-        applications{
-          products_id{
+        applications {
+          products_id {
             slug
           }
         }
@@ -84,4 +163,3 @@ query productsapps($limit: Int) {
     }
   }
 }
-

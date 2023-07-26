@@ -28,7 +28,7 @@
               transition(name="animate__animated" enter-active-class=" animate__fadeIn" leave-active-class="animate__fadeOut")
                 .dropdown(v-if="dropDown" @mouseover="showDropdown")
                   div(v-for="i in products.categories")
-                    NuxtLink.lin.col(:to="localePath('/products/' + i.slug)")
+                    NuxtLink.lin.col(:to="localePath('/categories/' + i.slug)")
                       .dropitems(v-for="item in i.translations")
                         p(v-if="item.languages_code.code.includes(lang)") {{ item.title }}
                   .smoothBoxWhite(style="background:#4d614f; border:none; padding:0 ") 
@@ -129,7 +129,7 @@ function hideDropdown(){
     }
   }
 }
-@media (min-width: 992px) {
+@media (min-width: 1180px) {
   .div{
     
   .right {
@@ -138,7 +138,7 @@ function hideDropdown(){
     }
   }
 }}
-@media (max-width: 992px) {
+@media (max-width: 1180px) {
   .div{
     height: 100px !important;
     .upper {

@@ -50,5 +50,8 @@ export default {
   "trust":"Trust",
   "truststory":"Rockal name has implied the meaning of trust over the years. Through our significant experience in our field, we can gain the trust of our valued clients and become qualified partners in their journeys to success.",
   "ourteam":"Our Team",
-  "Our Business Partners":"Our Business Partners"
+  "Our Business Partners":"Our Business Partners",
+  "related":"Related",
+  "storedesc": "Rockal is one of the largest and highest rated independent builder providers in the middle east",
+
 };

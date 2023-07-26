@@ -37,7 +37,7 @@
                 NuxtLink.lin.col(:to="localePath('/products')")
                     h6 {{$t('browse all')}} {{$t('products')}} 
                 div(v-for="i in data1.categories")
-                    NuxtLink.lin.col(:to="localePath('/products/' + i.slug)")
+                    NuxtLink.lin.col(:to="localePath('/categories/' + i.slug)")
                         .ddiv(v-for="item in i.translations") 
                             h6(v-if="item.languages_code.code.includes(lang)") {{item.title}}
             .riright 

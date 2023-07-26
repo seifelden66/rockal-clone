@@ -1,11 +1,13 @@
-<template lang="pug">
-
+<template>
+    <div>
+fgfg
+    </div>
 </template>
 
 <script setup lang="ts">
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
