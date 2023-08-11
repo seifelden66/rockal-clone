@@ -5,7 +5,7 @@
           .left 
               h2 {{$t('applications')}}
           .right 
-              .smoothBox 
+            nuxt-link(:to="localePath('/applications/')").lin.smoothBox 
                   h6 browse all categouries 
       Swiper.cards(
           :slides-per-view="'auto'"
@@ -16,9 +16,9 @@
       )
           SwiperSlide(v-for="i in data.applications")
               div(v-for="item in i.translations")
-                  .card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'")
+                nuxt-link(:to="localePath('/applications/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'")
                       .image
-                          img(:src="'https://board.rockal.org/assets/'+ item.cover.id")
+                          img(loading="lazy" :src="'https://board.rockal.org/assets/'+ item.cover.id")
                       .bottom
                           h5 {{ item.title }}
                           p {{ item.description}}

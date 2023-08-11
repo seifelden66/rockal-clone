@@ -5,7 +5,7 @@
             div(v-if="i.slug === namee")
                 div(v-for="item in i.translations")
                   div(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'")
-                    .path(style="margin-bottom:1em" :style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'")
+                    .path(style="margin-bottom:1em" :style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'" :dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'")
                       NuxtLink.lin(:to="localePath('/')" style="color:#fbc30c") {{$t('home')}} 
                       span(style="color:#fbc30c")  / 
                       NuxtLink.lin(:to="localePath('/categories')" style="color:#fbc30c") {{$t('categories')}}

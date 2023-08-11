@@ -14,3 +14,57 @@ query press($limit: Int) {
     }
   }
 }
+query allpress($limit: Int){
+  press_categories{
+    slug
+    press_center(limit: $limit) {
+    slug
+    translations {
+      content
+      description
+      title
+      cover {
+        id
+      }
+      languages_code {
+        code
+      }
+    }
+  }
+    translations{
+      languages_code{
+        code
+      }
+      title
+    }
+  }
+}
+
+query pressfilt($filter: String) {
+  press_categories(filter: { slug: { _eq: $filter } }) {
+    slug
+    press_center {
+      slug
+      translations {
+        content
+        description
+        title
+        cover {
+          id
+        }
+        languages_code {
+          code
+        }
+      }
+    }
+    translations {
+      languages_code {
+        name
+      }
+      title
+    }
+  }
+}
+
+
+

@@ -5,15 +5,15 @@
             .left 
                 h2 {{$t('press2')}}
             .right 
-                .smoothBox 
+              nuxt-link(:to="localePath('/press/')").lin.smoothBox 
                     h6 {{$t('show')}}
         .fr 
-          .card(v-for="(i, index) in data.press_center" :class="'card-' + index" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'" )
+          nuxt-link(:to="localePath('/press/' + i.slug)").lin.card(v-for="(i, index) in data.press_center" :class="'card-' + index" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'" )
             div(v-if="i.translations[0].cover")
               div(v-for="item in i.translations" :key="index")
                 .in(v-if="item.languages_code.code.includes(lang)")
                   .image
-                    img(:src="'https://board.rockal.org/assets/'+ item.cover.id")
+                    img(loading="lazy"  :src="'https://board.rockal.org/assets/'+ item.cover.id")
                   .right
                     h5 {{ item.title }}
                     .con

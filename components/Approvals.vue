@@ -5,8 +5,10 @@
             h1 {{$t('our products approved by')}}
         .btm 
             .ddiv(v-for="i in data.brands")
-                .image(v-for="item in i.translations[0]")
-                    img(:src="'https://board.rockal.org/assets/'+ item.id")
+              div(v-for="item in i.translations")
+                .lin.card(v-if="item.languages_code.code.includes(lang)" )
+                  .card(v-if="item.cover")
+                    img(loading="lazy" :src="'https://board.rockal.org/assets/'+ item.cover.id")
                 
 </template>
 
@@ -14,6 +16,10 @@
 const { data } = await useAsyncGql({
   operation: "spons",
 });
+import { useI18nUtils } from "../i18n";
+const { t, locale, setLocale, localePath, changeLanguageEN } = useI18nUtils();
+
+const lang = ref(locale);
 </script>
 
 <style lang="scss" scoped>

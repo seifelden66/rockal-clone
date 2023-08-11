@@ -1,6 +1,9 @@
 query spons {
   brands {
     translations {
+      languages_code{
+        code
+      }
       cover {
         id
       }

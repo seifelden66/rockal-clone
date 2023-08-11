@@ -94,8 +94,8 @@ query apps($limit: Int) {
   }
 }
 
-query productsCategories($limit: Int) {
-  products(limit: $limit) {
+query productsCategories($limit: Int, $filter:[String]) {
+  products(filter:{category:{slug:{_in:$filter}}},limit: $limit) {
     slug
     translations {
       cover {
@@ -104,7 +104,7 @@ query productsCategories($limit: Int) {
       title
       description
       languages_code {
-        code
+        code  
       }
     }
     brand {
@@ -145,6 +145,58 @@ query productsCategories($limit: Int) {
     }
   }
 }
+query allproductsCategories($limit: Int) {
+  products(limit: $limit) {
+    slug
+    translations {
+      cover {
+        id
+      }
+      title
+      description
+      languages_code {
+        code  
+      }
+    }
+    brand {
+      products {
+        slug
+        translations {
+          title
+          languages_code {
+            code
+          }
+        }
+      }
+      translations {
+        languages_code {
+          code
+        }
+        title
+      }
+    }
+    category {
+      translations {
+        languages_code {
+          code
+        }
+        title
+      }
+      slug
+    }
+    applications {
+      products_id {
+        slug
+        applications {
+          products_id {
+            slug
+          }
+        }
+      }
+    }
+  }
+}
+
 
 query productsapps($limit: Int) {
   applications(limit: $limit) {

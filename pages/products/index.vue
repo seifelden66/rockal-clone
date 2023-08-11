@@ -7,32 +7,55 @@
             h6(style="display:inline-block; color:white") {{$t('products')}}
         .image
             img(src="/products.png")
-.div3(style="background:#f8f8f8")
-    .container-fluid(:dir="$i18n.locale === 'ar' ? 'ltr' : 'rtl'")
-        .left
-            div(v-for="i in data11")
-                div(v-for="item in i.translations" )  
-                    NuxtLink.lin.col(:to="localePath('/products/' + i.slug)").card(v-if="item.languages_code.code.includes(lang) && (selectedCategories.length === 0 || selectedCategories.includes(i.category.slug))" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'")
-                            .image
-                                    img(loading="lazy" :src="'https://board.rockal.org/assets/'+ i.translations[0].cover.id ")
-                            .cont 
-                                h4 {{ item.title }}
-                                p {{item.description}}
-                                
-        .right
-            div(v-for="i in data22")
-                label(style="display:flex; gap:5px" :dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'")
-                    input(type="checkbox" :checked="selectedCategories.includes(i.slug)" @change="toggleCategory(i.slug)")
-                    span(v-for="item in i.translations")
-                        span(v-if="item.languages_code.code.includes(lang)") {{ item.title }}
-                                
-            div(v-for="f in filt")
-                p {{ f }}
-                        
-    
-                
-    button.smoothBox(@click="lim = lim + 10" style="margin: 0 auto; margin-top:1.5em;") {{$t('show')}}
+.div5
+    .container-fluid  
+            .smoothBox(@click="showfilt")
+                h4(style="text-align:center") filter
 
+.men(v-if="profilt")
+    .container-fluid 
+        div(v-for="i in data22")
+            div(v-for="item in i.translations" )
+                div(v-if="item.languages_code.code.includes(lang)")
+                    div(style="display:flex; align-items:center; justify-content:space-between; width:12em")
+                        p(style="margin-top:10px; ") {{ item.title }}
+                        input(type="checkbox" :value="i.slug" v-model="cats")
+        .smoothBox(@click="hidefilt") 
+            h4 filter
+    
+
+.div3(style="background:#f8f8f8;")
+    .container-fluid(:dir="$i18n.locale === 'ar' ? 'ltr' : 'rtl'")
+        .g(v-if="cats.length === 0 ")
+            .cards
+                div(v-for="i in data3.products")
+                    .left(v-for="item in i.translations")
+                        nuxt-link(:to="localePath('/products/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)")
+                            .image(v-if="item.cover")
+                                img(loading="lazy" :src="'https://board.rockal.org/assets/'+item.cover.id")
+                            .cont(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'")
+                                h5 {{ item.title }}
+                                p(v-if="item.description") {{ item.description.substr(0, 150) + "..." }}
+            .btn
+                .smoothBox(@click="lim = lim + 10") {{$t('show')}}
+        .g(v-else)
+            .cards
+                div(v-for="i in data1.products")
+                    div(v-for="item in i.translations")
+                        nuxt-link(:to="localePath('/products/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)")
+                            .image(v-if="item.cover")
+                                img(loading="lazy" :src="'https://board.rockal.org/assets/'+item.cover.id")
+                            .cont(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'")
+                                h5 {{ item.title }}
+                                p(v-if="item.description")  {{ item.description.substr(0, 150) + "..." }}
+            
+        .right()
+            div(v-for="i in data22")
+                div(v-for="item in i.translations" )
+                    div(v-if="item.languages_code.code.includes(lang)")
+                        div(style="display:flex; align-items:center; justify-content:space-between; width:12em")
+                            p(style="margin-top:10px; ") {{ item.title }}
+                            input(type="checkbox" :value="i.slug" v-model="cats")
 </template>
 
 <script setup lang="ts">
@@ -40,32 +63,44 @@ import { useI18nUtils } from "../../i18n";
 const { t, locale, setLocale, localePath, changeLanguageEN } = useI18nUtils();
 
 const lang = ref(locale);
-const lim = ref(12)
-const selectedCategories = ref([]);
 
+const lim = ref(12)
+const cats = ref([])
 
 const { data: data1 } = await useAsyncGql({
     operation: "productsCategories",
-    variables: { limit: lim },
+    variables: { limit: lim, filter: cats.value},
 });
+async function watch() {
+    const { data: data1 } = await useAsyncGql({
+        operation: "productsCategories",
+        variables: { limit: lim, filter: cats},
+    });
+    
+}
+watch();
+
+const { data:data3 } = await useAsyncGql({
+    operation: "allproductsCategories",
+    variables: { limit: lim},
+});
+async function watch2(){
+    const { data:data3 } = await useAsyncGql({
+    operation: "allproductsCategories",
+    variables: { limit: lim}
+});
+}
+watch();
+
+
 const { data:data2 } = await useAsyncGql({
     operation: "products",
     
 });
-const toggleCategory = (slug) => {
-    const index = selectedCategories.value.indexOf(slug);
-    if (index > -1) {
-    selectedCategories.value.splice(index, 1); 
-    } else {
-    selectedCategories.value.push(slug); 
-    }
-};
-const data11 = data1.value?.products.map((item)=>item)
-const data22 = data2.value?.categories.map((item)=>item)
-const filt = data2.value?.categories.filter((item)=>{
-    console.log(item.slug === data11?.map((item)=>item.category?.slug)? item.slug: null)
-    // return item.slug === data11?.map((i)=>i.category?,)
-})
+
+
+const data22 = data2.value?.categories.map((item)=>item).flat()
+
 
 </script>
 
@@ -88,6 +123,56 @@ const filt = data2.value?.categories.filter((item)=>{
     }
     
 }
+.div5{
+    padding-top: 3em;
+    .container-fluid{
+        .smoothBox{
+            background: #f8f8f8;
+            border: 1px green solid;
+            color: green;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            transition:.4s ease all ;
+            &:hover{
+                background-color: green;
+                color: white;
+            }
+        }
+    }
+    @media (min-width:992px) {
+        display: none;
+    }
+}
+.men{
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    height: 100vh;
+    width: 100vw;
+    background: #fff;
+    padding-top: 10em;
+    
+    .smoothBox{
+        margin-top: 1em;
+        background: green;
+        
+        color: white;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        width: 200px;
+        float: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition:.4s ease all ;
+        &:hover{
+            background-color: rgb(0, 89, 0);
+            
+        }
+    }
+}
 .div3 {
     padding-top: 3em;
     .container-fluid {
@@ -99,35 +184,45 @@ const filt = data2.value?.categories.filter((item)=>{
         grid-template-columns: 1fr;
         height: 50vh;
     }
-    .left {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: .7em;
-        .card{
-        height: 60vh;
-        padding: .5em;
-        .image{
-            height: 24vh;
-            border-bottom: 1px solid #000;
-        }
-        .cont{
+    .g{
+        position: relative;
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: .7em;
+            .card{
+            height: 60vh;
+            padding: .5em;
+            .image{
+                height: 24vh;
+                border-bottom: 1px solid #000;
+            }
+            .cont{
+                
+                padding: 1.35em;
+            }
+            }
+            @media (max-width: 992px) {
+            grid-template-columns: 1fr 1fr;
             
-            padding: 1.35em;
+            .card{
+                height: 62vh;
+                overflow: hidden;
+            }
+            }
+            @media (max-width: 500px) {
+            grid-template-columns: 1fr;
+            
+            }
         }
-        }
-        @media (max-width: 992px) {
-        grid-template-columns: 1fr 1fr;
-        
-        .card{
-            height: 62vh;
-            overflow: hidden;
-        }
-        }
-        @media (max-width: 500px) {
-        grid-template-columns: 1fr;
-        
+        .btn{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            
         }
     }
+    
     @media (max-width: 992px) {
         grid-template-columns:1fr;
         .right{

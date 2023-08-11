@@ -1,17 +1,50 @@
-query projects($limit: Int) {
-  projects(limit: $limit) {
+query projects($filter:String) {
+  projects_categories(filter:{slug:{_eq:$filter}}) {
     slug
     translations{
-      languages_code{
-        code
-      }
-      title
-      description
-      content
-      cover{
-        id
+      languages_code {
+          code
+        }
+        title
+    }
+    projects {
+      slug
+      translations {
+        languages_code {
+          code
+        }
+        title
+        description
+        content
+        cover {
+          id
+        }
       }
     }
   }
 }
-
+query allprojects {
+  projects_categories {
+    slug
+    translations{
+      languages_code {
+          code
+        }
+        title
+    }
+    projects {
+      slug
+      translations {
+        languages_code {
+          code
+        }
+        title
+        description
+        content
+        cover {
+          id
+        }
+      }
+    }
+  }
+}

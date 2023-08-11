@@ -25,9 +25,9 @@
                   h1(style="margin-bottom:1.5em") {{ item.title }}
                   h4 {{ item.description }}
               div(v-else)
-                .card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'")
+                nuxt-link(:to="localePath('/categories/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'")
                   .image
-                    img(:src="'https://board.rockal.org/assets/'+ item.cover.id")
+                    img(loading="lazy" :src="'https://board.rockal.org/assets/'+ item.cover.id")
                   .bottom
                     h5 {{ item.title }}
                     p {{ item.description.substr(0, 150) + "..." }}

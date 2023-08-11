@@ -19,7 +19,7 @@
                     .smoothBox
                       h6 {{ $t('about') }}
               .image
-                img(:src="'https://board.rockal.org/assets/' + i.cover_id")
+                img(loading="lazy" :src="'https://board.rockal.org/assets/' + i.cover_id")
               
 </template>
 

@@ -28,6 +28,13 @@ export default defineNuxtConfig({
           langDir: 'lang/',
       
     },
+    'graphql-client':{
+        watch: true,
+        autoImport: true,
+        functionPrefix: 'Gql',
+        documentPaths: ['./'],
+        preferGETQueries: false
+    }
 
 
 })
