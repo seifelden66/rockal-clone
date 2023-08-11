@@ -72,4 +72,5 @@ export default {
   "The artificial climate chamber is used to study the aging process of materials. The method gives the possibility to predict waterproofing materials performance after many years of exploitation on the roof in just two or three months of testing.":"The artificial climate chamber is used to study the aging process of materials. The method gives the possibility to predict waterproofing materials performance after many years of exploitation on the roof in just two or three months of testing.",
   "Bitumen and synthetic membranes are capable of resisting flames and correspond to E class. Roofing systems are tested to evaluate the fire performance and meet the criteria for the Proof classification.":"Bitumen and synthetic membranes are capable of resisting flames and correspond to E class. Roofing systems are tested to evaluate the fire performance and meet the criteria for the Proof classification.",
   "press center":"Press Center",
+  "and Seif":"and Seif"
 };

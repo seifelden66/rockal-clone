@@ -8,7 +8,7 @@
                 h6(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{$t('Certifications')}}
                 .image
                     LogosCert/
-            p(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{$t('All Copyrights Reserved © Rockal 2023 Designed With ♥ by Baianat')}}
+            p(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{$t('All Copyrights Reserved © Rockal 2023 Designed With ♥ by Baianat')}} {{$t('and Seif')}}
 
             
         .right 
