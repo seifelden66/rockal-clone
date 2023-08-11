@@ -126,9 +126,9 @@ watch();
           display: none;
         }
         @media (max-width:768px) {
-          gap: 1em;
+          gap: .5em;
           .smoothBoxWhite{
-            width: 90px;
+            width: 80px;
           }
         }
       }
