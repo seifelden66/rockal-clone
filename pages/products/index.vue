@@ -30,7 +30,7 @@
             .cards
                 div(v-for="i in data3.products")
                     .left(v-for="item in i.translations")
-                        nuxt-link(:to="localePath('/products/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)")
+                        nuxt-link(:to="localePath('/products/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)"  data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
                             .image(v-if="item.cover")
                                 img(loading="lazy" :src="'https://board.rockal.org/assets/'+item.cover.id")
                             .cont(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'")
@@ -42,7 +42,7 @@
             .cards
                 div(v-for="i in data1.products")
                     div(v-for="item in i.translations")
-                        nuxt-link(:to="localePath('/products/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)")
+                        nuxt-link(:to="localePath('/products/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)"  data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
                             .image(v-if="item.cover")
                                 img(loading="lazy" :src="'https://board.rockal.org/assets/'+item.cover.id")
                             .cont(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'")

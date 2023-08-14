@@ -12,9 +12,9 @@
 
 
 .div3(style="background:#f8f8f8") 
-  .container-fluid 
-    h1(style="font-weight:bold; text-align:center; margin-bottom:1em") {{t('our story')}}
-    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'") 
+  .container-fluid() 
+    h1(style="font-weight:bold; text-align:center; margin-bottom:1em" ) {{t('our story')}}
+    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'"  data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400") 
       .cont 
         h2(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") 1997      
         p(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{t('story1')}}
@@ -22,7 +22,7 @@
       .image 
         img(src="/story1.jpg")
       
-    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'") 
+    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'"  data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400") 
       .image
         img(src="/story2.png")
       .line
@@ -30,7 +30,7 @@
         h2(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") 2003
         p(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{t('story2')}}
     
-    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'") 
+    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'"  data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400") 
       .cont 
         h2(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") 2015
         p(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{t('story3')}}
@@ -38,7 +38,7 @@
       .image
         img(src="/story3.png")
 
-    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'")  
+    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'"  data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")  
       .image
         img(src="/story5.png")
       .line
@@ -46,7 +46,7 @@
         h2(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") 2017
         p(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{t('story5')}}
     
-    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'") 
+    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'"  data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400") 
       .cont 
         h2(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") 2020
         p(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{t('story6')}}
@@ -54,7 +54,7 @@
       .image
         img(src="/story6.png")
 
-    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'")  
+    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'"  data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")  
       .image
         img(src="/story7.png")
       .line
@@ -65,7 +65,7 @@
 
 
 .secmid(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'") 
-  .container-fluid
+  .container-fluid( data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
     .it
       .image(:style="$i18n.locale === 'ar' ? 'display:flex;align-items:right' : 'display:flex;align-items:left'")  
         LogosEye/
@@ -81,22 +81,22 @@
 
 .div3(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'" style="background: #262c27; color:#fff; padding-bottom:2em")
   .container-fluid 
-    h1(style="text-align:center; margin-bottom:1em; margin-top:1em") {{t('our values')}}
-    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'") 
+    h1(style="text-align:center; margin-bottom:1em; margin-top:1em"  data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400") {{t('our values')}}
+    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'"  data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400") 
       .cont 
         h2(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{t('experience')}}
         p(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{t('experiencestory')}}
       .line
       .image
         img(src="/experience.jpg")
-    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'")  
+    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'"  data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")  
       .image
         img(src="/quality.jpg")
       .line
       .cont 
         h2(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{t('quality')}}
         p(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{t('qualitystory')}}
-    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'") 
+    .ittem(:dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'"  data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400"  ) 
         .cont 
           h2(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{t('trust')}}
           p(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{t('truststory')}}
@@ -105,7 +105,7 @@
           img(src="/trust.jpg")
 
 .div3(style="background:#f8f8f8") 
-  .container-fluid 
+  .container-fluid( data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
     h1(style="text-align:center; margin-bottom:1em; margin-top:1em") {{t('ourteam')}}
     .image 
       img(src="/team.png")

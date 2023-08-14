@@ -21,7 +21,7 @@
           :navigation="true"
           :modules="modules"
           :breakpoints="{1080:{slidesPerView: '3'}, 992:{slidesPerView: '2'},640:{slidesPerView: '1.5'}}"
-          
+          data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400"
         )
           SwiperSlide(v-for="i in data11") 
             div(v-for="item in i.translations")
@@ -40,7 +40,7 @@
 
 
 .div3(style="background:#f8f8f8") 
-    .container-fluid
+    .container-fluid( data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
       h1(style="text-align:center") {{$t('dproducts')}} 
       Swiper.cards(
           :slides-per-view="'auto'"
@@ -60,7 +60,7 @@
                 p(v-if="item.description") {{ item.description.substr(0, 250) + "..."}}
 
 .div4(style="background:#f8f8f8") 
-  .container-fluid
+  .container-fluid( data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
     h1(style="text-align:center") {{$t('shopbybrand')}}
     .cards
       .brands(v-for="i in data3.brands") 

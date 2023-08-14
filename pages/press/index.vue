@@ -24,7 +24,7 @@
         .fr
             div(v-for="i in data2.press_center")
                 div(v-for="item in i.translations")
-                    nuxt-link(:to="localePath('/press/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)")
+                    nuxt-link(:to="localePath('/press/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)"  data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
                         .image(v-if="item.cover")
                             img(loading="lazy" :src="'https://board.rockal.org/assets/'+item.cover.id")
                         .cont(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'")
@@ -35,7 +35,7 @@
         .fr(v-for="i in filtered.press_categories")
             div(v-for="item in i.press_center")
                 div(v-for="j in item.translations")
-                    nuxt-link(:to="localePath('/press/' + item.slug)").lin.card(v-if="j.languages_code.code.includes(lang)")
+                    nuxt-link(:to="localePath('/press/' + item.slug)").lin.card(v-if="j.languages_code.code.includes(lang)" data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
                         .image(v-if="j.cover")
                             img(loading="lazy" :src="'https://board.rockal.org/assets/'+j.cover.id")
                         .cont(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'")

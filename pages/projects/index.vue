@@ -24,10 +24,10 @@
 
 .div2(v-if="typee === 'other'")
   .container-fluid  
-    .fr(v-for="i in alldata.projects_categories")
+    .fr(v-for="i in alldata.projects_categories" )
       div(v-for="item in i.projects")
         div(v-for="j in item.translations")
-          nuxt-link(:to="localePath('/projects/' + item.slug)").lin.card(v-if="j.languages_code.code.includes(lang)")
+          nuxt-link(:to="localePath('/projects/' + item.slug)").lin.card(v-if="j.languages_code.code.includes(lang)" data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
             .image(v-if="j.cover")
               img(loading="lazy" :src="'https://board.rockal.org/assets/'+j.cover.id")
             .cont(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'")
@@ -39,7 +39,7 @@
     .fr(v-for="i in filtered.projects_categories")
       div(v-for="item in i.projects")
         div(v-for="j in item.translations")
-          nuxt-link(:to="localePath('/projects/' + item.slug)").lin.card(v-if="j.languages_code.code.includes(lang)")
+          nuxt-link(:to="localePath('/projects/' + item.slug)").lin.card(v-if="j.languages_code.code.includes(lang)" data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
             .image(v-if="j.cover")
               img(loading="lazy" :src="'https://board.rockal.org/assets/'+j.cover.id")
             .cont(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'")

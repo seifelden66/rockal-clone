@@ -25,16 +25,16 @@
 <script setup lang="ts">
 import { useI18nUtils } from "../../i18n";
 import { Navigation, Pagination } from "swiper";
-
+const isloading = ref(true)
 const { t, locale, setLocale, localePath, changeLanguageEN } = useI18nUtils();
 const lang = ref(locale);
 const modules = [Navigation, Pagination];
+
 
 const { data } = await useAsyncGql({
   operation: "press",
   variables: { limit: 4 },
 });
-
 
 </script>
 

@@ -1,5 +1,6 @@
 <template lang="pug">
-.div2 
+.div2
+  div(data-aos="zoom-in" :data-aos-duration="400" :data-aos-delay="400")
     Contact/
 </template>
 

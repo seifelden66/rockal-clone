@@ -16,7 +16,7 @@
       .cards
           div(v-for="i in data.applications" )
               div(v-for="item in i.translations" )
-                nuxt-link(:to="localePath('/applications/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align:right;':'text-align:left;'")
+                nuxt-link(:to="localePath('/applications/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align:right;':'text-align:left;'" data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
                   .image(v-if="item.cover")
                     img(loading="lazy" :src="'https://board.rockal.org/assets/' + item.cover.id")
                   .cont
@@ -26,7 +26,7 @@
         .smoothBox(@click="lim = lim + 10") {{$t('show')}}
 .div4(style="background:#f8f8f8;") 
   .container-fluid 
-    .cards
+    .cards(data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
       .card(:style="$i18n.locale === 'ar' ? 'text-align:right; align-items: flex-end;' : 'text-align:left; align-items: flex-start;'")
         h2 {{$t('store')}}
         p {{$t('Order Our Products Directly')}}
