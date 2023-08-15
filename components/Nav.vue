@@ -5,7 +5,7 @@
         .upper
             .loh(:style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'")
               logosLogo/ 
-              p(style="margin-top:.7em; font-size:12px") {{$t('by seif')}} 
+              p(style="margin-top:.5em; font-size:12px;") {{$t('by seif')}} 
             .srch
                 input(type="search", placeholder="search ")
                 .srchicon(:style="$i18n.locale === 'ar' ? 'float:right' : 'float:left'")
@@ -142,8 +142,13 @@ function hideDropdown(){
 }}
 @media (max-width: 1180px) {
   .div{
-    height: 100px !important;
+    height: 117px !important;
     .upper {
+      .loh{
+        p{
+          font-size: 11px !important;
+        }
+      }
       .srch {
         display: none !important;
       }

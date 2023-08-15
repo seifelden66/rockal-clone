@@ -1,73 +1,74 @@
 <template lang="pug">
-.div
+div
+  .div
+      .container-fluid
+          .path(style="margin-bottom:1em" :style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'" :dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'")
+              NuxtLink.lin(:to="localePath('/')" style="color:#fbc30c") {{$t('home')}}     
+              span(style="color:white")  / 
+              h6(style="display:inline-block; color:white") {{$t('store')}}
+          .image
+              img(src="/store.jpg")
+              .tex(:style="$i18n.locale === 'ar' ? 'right:2em': 'left: 2em'")
+                .title
+                  h2(:style="$i18n.locale === 'ar' ? 'text-align:right': 'text-align:left'") {{$t('store')}}  
+                p(:style="$i18n.locale === 'ar' ? 'text-align:right': 'text-align:left'") {{$t('storedesc')}}
+
+  .div3(style="background:#f8f8f8") 
     .container-fluid
-        .path(style="margin-bottom:1em" :style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'" :dir="$i18n.locale === 'ar' ? 'rtl' : 'ltr'")
-            NuxtLink.lin(:to="localePath('/')" style="color:#fbc30c") {{$t('home')}}     
-            span(style="color:white")  / 
-            h6(style="display:inline-block; color:white") {{$t('store')}}
-        .image
-            img(src="/store.jpg")
-            .tex(:style="$i18n.locale === 'ar' ? 'right:2em': 'left: 2em'")
-              .title
-                h2(:style="$i18n.locale === 'ar' ? 'text-align:right': 'text-align:left'") {{$t('store')}}  
-              p(:style="$i18n.locale === 'ar' ? 'text-align:right': 'text-align:left'") {{$t('storedesc')}}
+      h1(style="text-align:center") {{$t('popular')}} {{$t('categories')}} 
+      Swiper(style="margin-top:1em").cards(
+            :slides-per-view="'auto'"
+            :space-between="6"
+            :navigation="true"
+            :modules="modules"
+            :breakpoints="{1080:{slidesPerView: '3'}, 992:{slidesPerView: '2'},640:{slidesPerView: '1.5'}}"
+            data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400"
+          )
+            SwiperSlide(v-for="i in data11") 
+              div(v-for="item in i.translations")
+                div(v-if="item.cover === null")
+                  nuxt-link(:to="localePath('/categories/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'" style="padding:2em")
+                    h1(style="margin-bottom:1.5em") {{ item.title }}
+                    h4 {{ item.description }}
+                div(v-else)
+                  nuxt-link(:to="localePath('/categories/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'")
+                    .image
+                      img(loading="lazy" :src="'https://board.rockal.org/assets/'+ item.cover.id")
+                    .cont
+                      h5 {{ item.title }}
+                      p {{ item.description.substr(0, 250) + "..." }}
 
-.div3(style="background:#f8f8f8") 
-  .container-fluid
-    h1(style="text-align:center") {{$t('popular')}} {{$t('categories')}} 
-    Swiper(style="margin-top:1em").cards(
-          :slides-per-view="'auto'"
-          :space-between="6"
-          :navigation="true"
-          :modules="modules"
-          :breakpoints="{1080:{slidesPerView: '3'}, 992:{slidesPerView: '2'},640:{slidesPerView: '1.5'}}"
-          data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400"
-        )
-          SwiperSlide(v-for="i in data11") 
+
+
+  .div3(style="background:#f8f8f8") 
+      .container-fluid( data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
+        h1(style="text-align:center") {{$t('dproducts')}} 
+        Swiper.cards(
+            :slides-per-view="'auto'"
+            :space-between="6"
+            :navigation="true"
+            :modules="modules"
+            :breakpoints="{1080:{slidesPerView: '3'}, 992:{slidesPerView: '2'},640:{slidesPerView: '1.5'}}"
+            
+          )
+          SwiperSlide(v-for="i in data1.products")
             div(v-for="item in i.translations")
-              div(v-if="item.cover === null")
-                nuxt-link(:to="localePath('/categories/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'" style="padding:2em")
-                  h1(style="margin-bottom:1.5em") {{ item.title }}
-                  h4 {{ item.description }}
-              div(v-else)
-                nuxt-link(:to="localePath('/categories/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'")
-                  .image
-                    img(loading="lazy" :src="'https://board.rockal.org/assets/'+ item.cover.id")
-                  .cont
-                    h5 {{ item.title }}
-                    p {{ item.description.substr(0, 250) + "..." }}
+              nuxt-link(:to="localePath('/products/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'" style="padding:2em")
+                .image(v-if="item.cover")
+                  img(loading="lazy" :src="'https://board.rockal.org/assets/'+ item.cover.id")
+                .cont 
+                  h5 {{ item.title }}
+                  p(v-if="item.description") {{ item.description.substr(0, 250) + "..."}}
 
-
-
-.div3(style="background:#f8f8f8") 
+  .div4(style="background:#f8f8f8") 
     .container-fluid( data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
-      h1(style="text-align:center") {{$t('dproducts')}} 
-      Swiper.cards(
-          :slides-per-view="'auto'"
-          :space-between="6"
-          :navigation="true"
-          :modules="modules"
-          :breakpoints="{1080:{slidesPerView: '3'}, 992:{slidesPerView: '2'},640:{slidesPerView: '1.5'}}"
-          
-        )
-        SwiperSlide(v-for="i in data1.products")
+      h1(style="text-align:center") {{$t('shopbybrand')}}
+      .cards
+        .brands(v-for="i in data3.brands") 
           div(v-for="item in i.translations")
-            nuxt-link(:to="localePath('/products/' + i.slug)").lin.card(v-if="item.languages_code.code.includes(lang)" :style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'" style="padding:2em")
-              .image(v-if="item.cover")
+            .lin.card(v-if="item.languages_code.code.includes(lang)" )
+              .card(v-if="item.cover")
                 img(loading="lazy" :src="'https://board.rockal.org/assets/'+ item.cover.id")
-              .cont 
-                h5 {{ item.title }}
-                p(v-if="item.description") {{ item.description.substr(0, 250) + "..."}}
-
-.div4(style="background:#f8f8f8") 
-  .container-fluid( data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
-    h1(style="text-align:center") {{$t('shopbybrand')}}
-    .cards
-      .brands(v-for="i in data3.brands") 
-        div(v-for="item in i.translations")
-          .lin.card(v-if="item.languages_code.code.includes(lang)" )
-            .card(v-if="item.cover")
-              img(loading="lazy" :src="'https://board.rockal.org/assets/'+ item.cover.id")
 
 
 
