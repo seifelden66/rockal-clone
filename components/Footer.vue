@@ -3,7 +3,9 @@
     .container-fluid
         .left
             .image
-                LogosLogob/
+                .loh(:style="$i18n.locale === 'ar' ? 'text-align: right;': 'text-align: left;'")
+                    LogosLogob/
+                    p(style="margin-top:.7em; font-size:12px") {{$t('by seif')}} 
             .cert
                 h6(:style="$i18n.locale === 'ar' ? 'text-align:right' : 'text-align:left'") {{$t('Certifications')}}
                 .image

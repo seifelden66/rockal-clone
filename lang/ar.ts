@@ -72,5 +72,6 @@ export default {
   "The artificial climate chamber is used to study the aging process of materials. The method gives the possibility to predict waterproofing materials performance after many years of exploitation on the roof in just two or three months of testing.":"تستخدم غرفة المناخ الاصطناعي لدراسة مرور الزمن على جودة المواد. تتيح هذه الطريقة إمكانية التنبؤ بأداء مواد العزل المائي بعد سنوات عديدة من الاستخدام الفعلي خلال شهرين أو ثلاثة أشهر فقط من الاختبار.",
   "Bitumen and synthetic membranes are capable of resisting flames and correspond to E class. Roofing systems are tested to evaluate the fire performance and meet the criteria for the Proof classification.":"تُستخدم معدات كروماتوغرافيا فريدة لتحديد تركيبة البيتومين لإنتاج مواد التسقيف، والاختيار الأمثل لنوع وكمية المواد المضافة المعدلة. يتيح لنا البحث عن التقنيات المتقدمة وتنفيذها بإحضار منتجات جديدة وأنواع مختلفة من المنتجات حسب احتياجات العملاء كل عام. على سبيل المثال، مواد البناء الآمنة للحريق.الأنظمة هي واحدة من الأولويات الرئيسية في روكال. تتوافق أغشية التسقيف والعزل المائي لدينا كليًا مع اللوائح الأوروبية الصارمة للسلامة من الحرائق",
   "press center":"مركز الصحافة",
-  "and Seif":"و سيف"
+  "and Seif":"و سيف",
+  "by seif":"بواسطة سيف"
   };
