@@ -1,17 +1,17 @@
 <template lang="pug">
-.main
+.main(style="background:#f8f8f8;")
     Hero/
-    div( data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
+    div( data-aos="fade-up" :data-aos-duration="450" :data-aos-delay="200")
         Products/
-    div( data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
+    div( data-aos="fade-up" :data-aos-duration="450" :data-aos-delay="200")
         Press/
-    div( data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
+    div( data-aos="fade-up" :data-aos-duration="450" :data-aos-delay="200")
         Approvals/
-    div( data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
+    div( data-aos="fade-up" :data-aos-duration="450" :data-aos-delay="200")
         Applications/
-    div( data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
+    div( data-aos="fade-up" :data-aos-duration="450" :data-aos-delay="200")
         Projects/
-    div( data-aos="fade-up" :data-aos-duration="400" :data-aos-delay="400")
+    div( data-aos="fade-up" :data-aos-duration="450" :data-aos-delay="200")
         Contact/
 </template>
 <style lang="scss" scoped>
